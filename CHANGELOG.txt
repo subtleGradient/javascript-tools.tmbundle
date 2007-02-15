@@ -1,16 +1,16 @@
 JavaScript Tools TextMate Bundle
 --------------------------------
 
-v0.2 (Thu Feb 15 14:20:13 EST 2007) -- Thomas Aylott / subtleGradient
+v0.2 (Thu Feb 15 14:20:13 EST 2007) -- Thomas Aylott / subtleGradient (http://subtleGradient.com)
 + Made everything more "textmate-like"
 + New Minimize Selection command to replace the "upwrap paragraph" command
 + Added to bundleforge
 
-v0.1.1 (10/3/2006) -- Andrew Dupont
+v0.1.1 (10/3/2006) -- Harald Marin Ström (http://burnfield.com/martin/)
 + Added a PPC binary of jsl.
 + Added more precision to the line-number hyperlinks.  They now take you to
   the proper line *and* column, and will focus the proper file even if it is
   not the frontmost document.
 
-v0.1.0
+v0.1.0 -- Andrew Dupont (http://www.andrewdupont.net/2006/10/01/javascript-tools-textmate-bundle/)
 + Initial version.
