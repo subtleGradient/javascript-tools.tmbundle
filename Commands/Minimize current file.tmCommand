@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>require_cmd mate
+newfile=${TM_FILEPATH/%.js/_minimized.js}
+ruby "$TM_BUNDLE_SUPPORT/bin/jsmin.rb" &gt; $newfile
+mate $newfile
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>^@m</string>
+	<key>name</key>
+	<string>Minimize current file</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>source.js, source.prototype.js</string>
+	<key>uuid</key>
+	<string>D3210BEC-4A3A-4FA9-8D7C-1A0F8065CFF5</string>
+</dict>
+</plist>

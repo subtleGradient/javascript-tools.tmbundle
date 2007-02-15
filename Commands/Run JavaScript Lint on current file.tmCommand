@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>ruby "$TM_BUNDLE_SUPPORT/bin/lint.rb"</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^@l</string>
+	<key>name</key>
+	<string>Lint current file</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.js, source.prototype.js</string>
+	<key>uuid</key>
+	<string>4108455E-925C-4009-B87F-4635199F6DE7</string>
+</dict>
+</plist>

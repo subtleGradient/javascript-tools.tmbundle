@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>require_cmd mate
+newfile=${TM_FILEPATH/%.js/_compressed.js}
+java -jar "$TM_BUNDLE_SUPPORT/bin/custom_rhino.jar" -c "$TM_FILEPATH" &gt; "$newfile" 2&gt;&amp;1
+mate $newfile</string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>^@c</string>
+	<key>name</key>
+	<string>Compress current file</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>source.js, source.prototype.js</string>
+	<key>uuid</key>
+	<string>0B51E320-D218-4352-8AEF-096B3232E818</string>
+</dict>
+</plist>

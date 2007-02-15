@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>ruby "$TM_BUNDLE_SUPPORT/bin/jsmin.rb"
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^~Q</string>
+	<key>name</key>
+	<string>Minimize selection</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>scope</key>
+	<string>source.js, source.prototype.js</string>
+	<key>uuid</key>
+	<string>E620A7EF-DB9B-48D9-874F-60EAF426E70D</string>
+</dict>
+</plist>
