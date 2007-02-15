@@ -13,7 +13,7 @@ mate $newfile
 	<key>input</key>
 	<string>document</string>
 	<key>keyEquivalent</key>
-	<string>^@m</string>
+	<string>^@c</string>
 	<key>name</key>
 	<string>Minimize current file</string>
 	<key>output</key>

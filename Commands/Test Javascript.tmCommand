@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+
+cat &gt;/tmp/tmp_test.js
+
+. "$TM_SUPPORT_PATH/lib/webpreview.sh"
+html_header "Test Javascript"
+
+echo '&lt;pre&gt;&lt;script type="text/javascript" charset="utf-8"&gt; try{/*YOUR STUFF*/'
+cat /tmp/tmp_test.js
+echo '/*YOUR STUFF*/}catch(e){ document.write(e) }; &lt;/script&gt;&lt;/pre&gt;'
+
+html_footer
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Run Javascript ᴬᴸᴾᴴᴬ</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.js</string>
+	<key>uuid</key>
+	<string>536616D0-96F4-491F-86DA-03008772F7A3</string>
+</dict>
+</plist>

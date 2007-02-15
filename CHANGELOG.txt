@@ -1,5 +1,10 @@
 JavaScript Tools TextMate Bundle
 --------------------------------
+v0.2.1 (Thu Feb 15 16:56:45 EST 2007) -- Thomas Aylott / subtleGradient
++ Upgraded to JSLint 0.3.0 and merged into a single universal binary using:
+  lipo ppc/jsl intel/jsl -create -output jsl && strip jsl && ls -l jsl
++ Added a bunch of reformatting macros. 
+  They need to be converted into ruby scripts but are marginally useful asis.
 
 v0.2 (Thu Feb 15 14:20:13 EST 2007) -- Thomas Aylott / subtleGradient (http://subtleGradient.com)
 + Made everything more "textmate-like"

@@ -12,7 +12,7 @@ ruby "$TM_BUNDLE_SUPPORT/bin/quick_lint.rb"</string>
 	<key>keyEquivalent</key>
 	<string>@s</string>
 	<key>name</key>
-	<string>Quick Lint</string>
+	<string>Validate Syntax Quick</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>

@@ -3,23 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>saveActiveFile</string>
+	<string>nop</string>
 	<key>command</key>
 	<string>. "$TM_SUPPORT_PATH/lib/webpreview.sh"
-html_header "Validate Javascript"
-"${TM_RUBY:-ruby}" "$TM_BUNDLE_SUPPORT/bin/lint.rb"
-html_footer</string>
+html_header "LaTeX Bundle Help" "LaTeX"
+"$TM_SUPPORT_PATH/lib/markdown_to_help.rb" "$TM_BUNDLE_SUPPORT/help.markdown"
+html_footer
+</string>
+	<key>dontFollowNewOutput</key>
+	<true/>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
-	<string>^V</string>
+	<string></string>
 	<key>name</key>
-	<string>Validate Syntax</string>
+	<string>Help</string>
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
-	<string>source.js, source.prototype.js</string>
+	<string>source.js</string>
 	<key>uuid</key>
-	<string>4108455E-925C-4009-B87F-4635199F6DE7</string>
+	<string>6298E048-4D1B-4DD2-A3F1-AB78DD181E06</string>
 </dict>
 </plist>
