@@ -5,19 +5,15 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>require_cmd mate
-newfile=${TM_FILEPATH/%.js/_minimized.js}
-ruby "$TM_BUNDLE_SUPPORT/bin/jsmin.rb" &gt; $newfile
-mate $newfile
-</string>
+	<string>ruby "$TM_BUNDLE_SUPPORT/bin/jsmin.rb"</string>
 	<key>input</key>
 	<string>document</string>
 	<key>keyEquivalent</key>
 	<string>^@c</string>
 	<key>name</key>
-	<string>Minimize current file</string>
+	<string>Minimize (current file)</string>
 	<key>output</key>
-	<string>discard</string>
+	<string>replaceDocument</string>
 	<key>scope</key>
 	<string>source.js, source.prototype.js</string>
 	<key>uuid</key>

@@ -6,16 +6,16 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>. "$TM_SUPPORT_PATH/lib/webpreview.sh"
-html_header "LaTeX Bundle Help" "LaTeX"
+html_header "Javascript Tools Help" "Javascript"
 "$TM_SUPPORT_PATH/lib/markdown_to_help.rb" "$TM_BUNDLE_SUPPORT/help.markdown"
+echo "&lt;p&gt;Feel free to pop open the bundles guts and use the tools directly if you'd like&lt;/p&gt;"
+echo "open '$TM_BUNDLE_PATH/bin/'"
 html_footer
 </string>
 	<key>dontFollowNewOutput</key>
 	<true/>
 	<key>input</key>
 	<string>none</string>
-	<key>keyEquivalent</key>
-	<string></string>
 	<key>name</key>
 	<string>Help</string>
 	<key>output</key>

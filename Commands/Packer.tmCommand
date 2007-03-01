@@ -5,19 +5,26 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>cat &gt;'/tmp/compress_this_file.js'
-java -jar "$TM_BUNDLE_SUPPORT/bin/custom_rhino.jar" -c '/tmp/compress_this_file.js'</string>
+	<string>#!/usr/bin/env php -q
+&lt;?php
+require getenv('TM_BUNDLE_SUPPORT').'/bin/packer/'.'class.JavaScriptPacker.php4';
+
+$packer = new JavaScriptPacker(fopen('php://stdin','r'));
+$packed = $packer-&gt;pack();
+
+echo $packed;
+?&gt;</string>
 	<key>input</key>
 	<string>document</string>
 	<key>keyEquivalent</key>
 	<string>^@c</string>
 	<key>name</key>
-	<string>Compress (current file)</string>
+	<string>Dean Edwards Packer (current file)</string>
 	<key>output</key>
 	<string>replaceDocument</string>
 	<key>scope</key>
-	<string>source.js, source.prototype.js</string>
+	<string>source.js</string>
 	<key>uuid</key>
-	<string>0B51E320-D218-4352-8AEF-096B3232E818</string>
+	<string>126FB767-F22D-4A95-8996-663C999CDDEC</string>
 </dict>
 </plist>

@@ -5,8 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>ruby "$TM_BUNDLE_SUPPORT/bin/jsmin.rb"
-</string>
+	<string>ruby -e 'print `ruby "$TM_BUNDLE_SUPPORT/bin/jsmin.rb"`[1..-1]'</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
