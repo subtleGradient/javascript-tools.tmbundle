@@ -1,5 +1,5 @@
-#!/usr/bin/env ruby
-# jsmin.rb 2006-03-21
+#!/usr/bin/ruby
+# jsmin.rb 2007-01-23
 # Author: Uladzislau Latynski
 # This work is a translation from C to Ruby of jsmin.c published by
 # Douglas Crockford.  Permission is hereby granted to use the Ruby
@@ -120,7 +120,9 @@ def action(a)
     end
     if(a==1 || a==2 || a==3)
         $theB = mynext
-        if ($theB == "/" && ($theA == "(" || $theA == "," || $theA == "="))
+        if ($theB == "/" && ($theA == "(" || $theA == "," || $theA == "=" ||
+                             $theA == ":" || $theA == "[" || $theA == "!" ||
+                             $theA == "&" || $theA == "|" || $theA == "?"))
             $stdout.write $theA
             $stdout.write $theB
             while (true)
