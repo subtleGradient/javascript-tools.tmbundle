@@ -70,7 +70,7 @@ def mynext()
         if(peek == "/")
             while(true)
                 c = get
-                if (c <= "\n")
+                if (c == EOF) or (c <= "\n")
                 return c
                 end
             end
