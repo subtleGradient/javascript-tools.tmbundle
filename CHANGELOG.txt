@@ -1,5 +1,8 @@
 JavaScript Tools TextMate Bundle
 --------------------------------
+v0.2.1 (Fri May 25 12:57:54 EDT 2007) -- Robert Rasmussen
++ Fixed TODO: "figure out why I can't use bracketed expressions and regexp captures within the same string"
+
 v0.2.1 (Thu Feb 15 16:56:45 EST 2007) -- Thomas Aylott / subtleGradient
 + Upgraded to JSLint 0.3.0 and merged into a single universal binary using:
   lipo ppc/jsl intel/jsl -create -output jsl && strip jsl && ls -l jsl
