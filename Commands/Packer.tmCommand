@@ -9,7 +9,7 @@
 &lt;?php
 require getenv('TM_BUNDLE_SUPPORT').'/bin/packer/'.'class.JavaScriptPacker.php4';
 
-$packer = new JavaScriptPacker(file_get_contents('php://stdin','r'));
+$packer = new JavaScriptPacker(file_get_contents('php://stdin'));
 $packed = $packer-&gt;pack();
 
 echo $packed;
