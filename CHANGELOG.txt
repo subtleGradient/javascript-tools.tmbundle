@@ -1,5 +1,8 @@
 JavaScript Tools TextMate Bundle
 --------------------------------
+v0.2.2 (Tue Mar 11 15:37:09 MDT 2008) -- john muhl
++ Added YUI! Compressor version 2.3.5 plus 1 new command "YUI! Compressor (current file)" which takes the current file as input and replaces it with the compressor'd version
+
 v0.2.1 (Fri May 25 12:57:54 EDT 2007) -- Robert Rasmussen
 + Fixed TODO: "figure out why I can't use bracketed expressions and regexp captures within the same string"
 

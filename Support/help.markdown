@@ -21,3 +21,6 @@ The JavaScript Minifier
 
 Quick lint annoys you with a tooltip on save.
 Validate will actually open a window with links to all
+
+[YUI! Compressor](http://developer.yahoo.com/yui/compressor/)
+---
