@@ -24,3 +24,5 @@ Validate will actually open a window with links to all
 
 [YUI! Compressor](http://developer.yahoo.com/yui/compressor/)
 ---
+* [YUI! Compressor](http://developer.yahoo.com/yui/compressor/)
+* [BDS License](http://developer.yahoo.com/yui/license.html)
