@@ -46,7 +46,7 @@ Licenses
 ---
 
 * **[JSLint][lint]** Copyright 2002 Douglas Crockford
-* **[Dojo Toolkit][dojo]** [BSD License][dbsd] *or* [Academic Free License version 2.1][dafl]
+* **[Dojo Toolkit][dojo]** [BSD License][dbsd] or [Academic Free License version 2.1][dafl]
 * **[Rhino][rhino]** [MPL 1.1/GPL 2.0][rmpl] [except where noted][radd]
 * **[Dean Edwards Packer][pack]** [LGPL License][lgpl]
 * **[Packr][packr]** [MIT License][mit]
