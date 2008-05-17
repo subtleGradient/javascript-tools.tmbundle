@@ -1,5 +1,11 @@
 JavaScript Tools TextMate Bundle
 --------------------------------
+v0.2.5 (Sat May 17 15:20:43 MDT 2008) -- john muhl
++ Update the Dean Edwards packer command to use the Packr ruby library instead of the older PHP one.
+  Packr is based on Packer v3 so we also get an upgraded Packer implementation. This also means the
+  Packr library has been added to Support/bin. Only minor modifications were made to the packr.rb
+  file in order to get it to run from within TextMate instead of your RAILS_ROOT.
+
 v0.2.4 (Sat May 17 13:19:15 MDT 2008) -- john muhl
 + Update custom_rhino.jar to the latest from <http://dojotoolkit.org/docs/shrinksafe>
 

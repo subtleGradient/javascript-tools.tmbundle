@@ -29,7 +29,7 @@ Formatting / Compression
 
 * **Compress (current file)** (⌃⌘C) uses a custom Rhino build from the Dojo Toolkit project to compress your current javascript document. Before compressing it attempts to insert missing semi-colons so you should consider running *Validate Syntax* and fixing missing semi-colons prior to using this command.
 
-* **Dean Edwards Packer (current file)** (⌃⌘C) compresses and obfuscates your current javascript document. It currently relies on the PHP port which was based on an older version of Packer so if you compare results with the online version they might be different. According to Dean Edwards, **"All statements, *including function declarations*, must be correctly terminated with semi-colons"** before you run this command.
+* **Dean Edwards Packer (current file)** (⌃⌘C) compresses and obfuscates your current javascript document. It currently relies on the Packr ruby port which is based on version 3 of Packer. According to Dean Edwards, **"All statements, *including function declarations*, must be correctly terminated with semi-colons"** before you run this command.
 
 * **YUI! Compressor (current file)** (⌃⌘C) compresses your current javascript document. By default it assumes your character set is UTF-8. Additionally it strictly preserves semi-colons, i.e. it will not drop or attempt to insert any semi-colons. Both of these settings can be easily changed by opening the Bundle editor and adjusting the second line of this command through the Bundle editor.
 
@@ -49,7 +49,7 @@ Licenses
 * **[Dojo Toolkit][dojo]** [BSD License][dbsd] *or* [Academic Free License version 2.1][dafl]
 * **[Rhino][rhino]** [MPL 1.1/GPL 2.0][rmpl] [except where noted][radd]
 * **[Dean Edwards Packer][pack]** [LGPL License][lgpl]
-* **[PHP Packer][ppack]** [LGPL License][lgpl]
+* **[Packr][packr]** [MIT License][mit]
 * **[YUI! Compressor][yuic]** [BSD License][ybsd]
 * **[JSMin][jsmin]** Copyright 2001 Douglas Crockford
 
@@ -60,9 +60,10 @@ Licenses
 [dbsd]:   http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13
 [dafl]:   http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L43
 [pack]:   http://dean.edwards.name/packer/
-[ppack]:  http://joliclic.free.fr/php/javascript-packer/en/
+[packr]:  http://blog.jcoglan.com/packr/
 [lint]:   http://www.jslint.com/
 [lgpl]:   http://creativecommons.org/licenses/LGPL/2.1/
+[mit]:    http://www.opensource.org/licenses/mit-license
 [yuic]:   http://developer.yahoo.com/yui/compressor/
 [ybsd]:   http://developer.yahoo.com/yui/license.html
 [jsmin]:  http://www.crockford.com/javascript/jsmin.html

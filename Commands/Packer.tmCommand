@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+require 'ftools'
+require "#{ENV['TM_BUNDLE_SUPPORT']}/bin/packr-1.0.2/lib/packr.rb"
+
+File::copy("#{ENV['TM_FILEPATH']}", '/tmp/compress_this_file.js')
+Packr.pack_file('/tmp/compress_this_file.js', :shrink_vars =&gt; true, :base62 =&gt; true)
+packed = File::read('/tmp/compress_this_file.js')
+puts packed</string>
+	<key>input</key>
+	<string>document</string>
+	<key>name</key>
+	<string>Packr</string>
+	<key>output</key>
+	<string>replaceDocument</string>
+	<key>scope</key>
+	<string>source.js</string>
+	<key>uuid</key>
+	<string>16D885D1-78B1-47F2-9BCC-1F27B77B987E</string>
+</dict>
+</plist>
