@@ -1,5 +1,8 @@
 JavaScript Tools TextMate Bundle
 --------------------------------
+v0.2.4 (Sat May 17 13:19:15 MDT 2008) -- john muhl
++ Update custom_rhino.jar to the latest from <http://dojotoolkit.org/docs/shrinksafe>
+
 v0.2.3 (Sat May 17 10:25:29 MDT 2008) -- john muhl
 + Move help.markdown to README.markdown for better github face
 + Updated help command to fetch README.markdown
