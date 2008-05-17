@@ -1,30 +1,69 @@
 JavaScript Tools TextMate Bundle
---------------------------------
+===
 
-### v0.2.2 (Tue Mar 11 15:37:09 MDT 2008) -- john muhl
+Help
+---
 
-* Added YUI! Compressor version 2.3.5 plus 1 new command "YUI! Compressor (current file)" which takes the current file as input and replaces it with the compressor'd version
+Opens this help file.
 
-### v0.2.1 (Fri May 25 12:57:54 EDT 2007) -- Robert Rasmussen
+Run Javascript (⌘R)
+---
 
-* Fixed TODO: "figure out why I can't use bracketed expressions and regexp captures within the same string"
+Attempts to run the current javascript document or selection in TextMate's Web Preview window.
 
-### v0.2.1 (Thu Feb 15 16:56:45 EST 2007) -- Thomas Aylott / subtleGradient
+Javascript Lint
+---
 
-* Upgraded to JSLint 0.3.0 and merged into a single universal binary using: `lipo ppc/jsl intel/jsl -create -output jsl && strip jsl && ls -l jsl`
-* Added a bunch of reformatting macros. They need to be converted into ruby scripts but are marginally useful asis.
+> JSLint takes a JavaScript source and scans it. If it finds a problem, it returns a message describing the problem and an approximate location within the source. The problem is not necessarily a syntax error, although it often is. JSLint looks at some style conventions as well as structural problems. It does not prove that your program is correct. It just provides another set of eyes to help spot problems. - <http://www.jslint.com/lint.html>
 
-### v0.2 (Thu Feb 15 14:20:13 EST 2007) -- Thomas Aylott / subtleGradient <http://subtleGradient.com>
+* **Validate Syntax** (⌃⇧V) uses Douglas Crockford's jslint to check your script for errors and warnings and shows the results in a new window. The *Validate Javascript* window will give you a description and hyperlink when problems are found. The hyperlink will take you straight to the where jslint suspects the problem arises.
 
-* Made everything more "textmate-like"
-* New Minimize Selection command to replace the "upwrap paragraph" command
-* Added to bundleforge
+* **Validate Syntax Quick** (⌘S) same as above except that instead of a dedicated window you simply get a tooltip showing the number of errors and warnings. This command overrides the Save behavior so every time you save your javascript it will be passed through jslint. Of course it only applies to javascript files so you don't need to worry about accidentally jslint'ing your non-javascript files.
 
-### v0.1.1 (10/3/2006) -- Harald Marin Ström (http://burnfield.com/martin/)
+* **Edit Lint Validation settings** allows you to customize what jslint considers when checking your script. The format and meaning of the options are straightforward and well documented within the settings file itself.
 
-* Added a PPC binary of jsl.
-* Added more precision to the line-number hyperlinks.  They now take you to the proper line *and* column, and will focus the proper file even if it is not the frontmost document.
+Formatting / Compression
+---
 
-### v0.1.0 -- Andrew Dupont <http://www.andrewdupont.net/2006/10/01/javascript-tools-textmate-bundle/>
+* **Format Javascript** (⌃Q) attempts to beautify your javascript by inserting uniform line breaks and indentation throughout your current document or selection.
 
-* Initial version.
+* **Compress (current file)** (⌃⌘C) uses a custom Rhino build from the Dojo Toolkit project to compress your current javascript document. Before compressing it attempts to insert missing semi-colons so you should consider running *Validate Syntax* and fixing missing semi-colons prior to using this command.
+
+* **Dean Edwards Packer (current file)** (⌃⌘C) compresses and obfuscates your current javascript document. It currently relies on the PHP port which was based on an older version of Packer so if you compare results with the online version they might be different. According to Dean Edwards, **"All statements, *including function declarations*, must be correctly terminated with semi-colons"** before you run this command.
+
+* **YUI! Compressor (current file)** (⌃⌘C) compresses your current javascript document. By default it assumes your character set is UTF-8. Additionally it strictly preserves semi-colons, i.e. it will not drop or attempt to insert any semi-colons. Both of these settings can be easily changed by opening the Bundle editor and adjusting the second line of this command through the Bundle editor.
+
+* **Minimize (current file)** (⌃⌘C) uses Douglas Crockford's JSMin to minimize your current javascript document. It will not do any semi-colon insertion or removal.
+
+* **Minimize selection** (⌃⌥⇧Q) same as the above except it only applies to the selected portion of your current javascript document.
+
+* **Convert Javascript to Bookmarklet** (⌃⌥⇧Q) turns your current javascript selection or document into a [bookmarklet][bkml] for use in a web browser.
+
+* **Convert Bookmarklet to Javascript** (⌃⌥⇧Q) does the opposite of the above; turns an existing bookmarklet into a standard javascript.
+
+
+Licenses
+---
+
+* **[JSLint][lint]** Copyright 2002 Douglas Crockford
+* **[Dojo Toolkit][dojo]** [BSD License][dbsd] *or* [Academic Free License version 2.1][dafl]
+* **[Rhino][rhino]** [MPL 1.1/GPL 2.0][rmpl] [except where noted][radd]
+* **[Dean Edwards Packer][pack]** [LGPL License][lgpl]
+* **[PHP Packer][ppack]** [LGPL License][lgpl]
+* **[YUI! Compressor][yuic]** [BSD License][ybsd]
+* **[JSMin][jsmin]** Copyright 2001 Douglas Crockford
+
+[rhino]:  http://developer.mozilla.org/en/docs/Rhino_documentation
+[rmpl]:   http://www.mozilla.org/MPL/
+[radd]:   http://developer.mozilla.org/en/docs/Rhino_License
+[dojo]:   http://dojotoolkit.org/docs/shrinksafe
+[dbsd]:   http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13
+[dafl]:   http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L43
+[pack]:   http://dean.edwards.name/packer/
+[ppack]:  http://joliclic.free.fr/php/javascript-packer/en/
+[lint]:   http://www.jslint.com/
+[lgpl]:   http://creativecommons.org/licenses/LGPL/2.1/
+[yuic]:   http://developer.yahoo.com/yui/compressor/
+[ybsd]:   http://developer.yahoo.com/yui/license.html
+[jsmin]:  http://www.crockford.com/javascript/jsmin.html
+[bkml]:   http://en.wikipedia.org/wiki/Bookmarklet
