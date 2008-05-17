@@ -6,10 +6,6 @@ require "#{ENV['TM_BUNDLE_SUPPORT']}/bin/packr-1.0.2/lib/string.rb"
 require "#{ENV['TM_BUNDLE_SUPPORT']}/bin/packr-1.0.2/lib/packr/regexp_group.rb"
 require "#{ENV['TM_BUNDLE_SUPPORT']}/bin/packr-1.0.2/lib/packr/words.rb"
 
-# require File.dirname(__FILE__) + '/string'
-# require File.dirname(__FILE__) + '/packr/regexp_group'
-# require File.dirname(__FILE__) + '/packr/words'
-
 class Packr
   
   PROTECTED_NAMES = %w($super)

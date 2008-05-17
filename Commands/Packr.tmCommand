@@ -10,13 +10,15 @@ require 'ftools'
 require "#{ENV['TM_BUNDLE_SUPPORT']}/bin/packr-1.0.2/lib/packr.rb"
 
 File::copy("#{ENV['TM_FILEPATH']}", '/tmp/compress_this_file.js')
-Packr.pack_file('/tmp/compress_this_file.js', :shrink_vars =&gt; true, :base62 =&gt; true)
+Packr.pack_file('/tmp/compress_this_file.js', :shrink_vars =&gt; true)
 packed = File::read('/tmp/compress_this_file.js')
 puts packed</string>
 	<key>input</key>
 	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>^@c</string>
 	<key>name</key>
-	<string>Packr</string>
+	<string>Dean Edwards Packer (current file)</string>
 	<key>output</key>
 	<string>replaceDocument</string>
 	<key>scope</key>
