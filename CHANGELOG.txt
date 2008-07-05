@@ -1,5 +1,10 @@
 JavaScript Tools TextMate Bundle
 --------------------------------
+v0.2.7 (Sat Jul  5 17:32:41 EDT 2008) -- Thomas Aylott
++ Made the Lint Validator work with a selection and fallback to the whole document
++ Converted the Lint code into a method so that it could theoretically be required by another file
++ Added some basic Unit Tests for lint.rb
+
 v0.2.6 (Sat May 17 20:14:50 EDT 2008) -- Thomas Aylott
 + Now you can just set and environment variable to toggle the Packr base62 option
 

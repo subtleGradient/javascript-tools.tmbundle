@@ -1,11 +1,20 @@
 #!/usr/bin/env ruby
 FILENAME = ENV['TM_FILENAME']
 FILEPATH = ENV['TM_FILEPATH']
-SUPPORT  = ENV['TM_BUNDLE_SUPPORT']
+# SUPPORT  = ENV['TM_BUNDLE_SUPPORT']
+SUPPORT  = '/Users/taylott/Library/Application Support/TextMate/Bundles/JavaScript Tools.tmbundle/Support'
 BINARY   = "#{SUPPORT}/bin/jsl"
 # BINARY   = `uname -a` =~ /i386/ ? "#{SUPPORT}/bin/intel/jsl" : "#{SUPPORT}/bin/ppc/jsl"
 
-output = `"#{BINARY}" -process "#{FILEPATH}" -nologo -conf "#{SUPPORT}/conf/jsl.textmate.conf"`
+def lint!(javascript,offset_line=0,offset_column=0)
+# File.write
+# output = `"#{BINARY}" -process "#{FILEPATH}" -nologo -conf "#{SUPPORT}/conf/jsl.textmate.conf"`
+output = IO::popen(%`"#{BINARY}" -stdin -nologo -conf "#{SUPPORT}/conf/jsl.textmate.conf" 2>&1`, 'r+') do |io|
+  io << javascript
+  io.close_write
+  io.read.chomp
+end
+
 
 output.gsub!('lint warning:', '<span class="warning">Warning:</span>')
 output.gsub!('SyntaxError:', '<span class="error">Syntax Error:</span>')
@@ -26,10 +35,14 @@ output  = output.map do |chunk|
   j = 0
   lines = lines.map do |line|
     if line =~ /^(\d+):/
-      column = (lines[j+2].rindex("^") + 1).to_s rescue ''
-      line.gsub!(/^(\d+):/, %{<a href="txmt://open?url=file://#{FILEPATH}&line=\\1&column=#{column}">\\1</a>})
-      line.gsub!('#{column}', column);
-      line.gsub!('#{FILEPATH}', FILEPATH);
+      
+      linenum = line.scan(/^(\d+):/).first.first
+      linenum = linenum.to_i + offset_line rescue 1
+      
+      column = lines[j+2].rindex("^") rescue 1
+      column = column.to_i + 1 + offset_column rescue 1
+      
+      line.gsub!(/^(\d+):/, %{<a href="txmt://open?url=file://#{FILEPATH}&line=#{linenum}&column=#{column}">\\1</a>})
     end
     j += 1
     line
@@ -43,7 +56,7 @@ output  = output.map do |chunk|
 end
 output = output.join("\n\n")
 
-html = <<WTF
+html = <<-HTML
 <html>
   <head>
     <title>JavaScript Lint Results</title>
@@ -94,6 +107,42 @@ html = <<WTF
     </ul>
   </body>
 </html>  
-WTF
+HTML
 
-puts html
+html
+end
+
+if __FILE__ == $0
+
+if ENV['TM_SCOPE'] =~ /source\.js/
+  puts lint!(STDIN.read, ENV['TM_INPUT_START_LINE'].to_i, ENV['TM_INPUT_START_COLUMN'].to_i)
+else
+  require "test/unit"
+  class TestLint < Test::Unit::TestCase
+    def test_basic
+      js = '1+1;'
+      result = lint!(js)
+      assert result.include?('0 error(s), 0 warning(s)'), result
+    end
+    def test_basic_error
+      js = '"'
+      result = lint!(js)
+      assert result.include?('1 error(s), 0 warning(s)'), result
+      assert result.include?('&line=1&column=1'), result
+    end
+    def test_offset
+      js = '"'
+      result = lint!(js, 100)
+      assert result.include?('1 error(s), 0 warning(s)'), result
+      assert result.include?('&line=101&column=1'), result
+    end
+    def test_offset2
+      js = "{'singleQuotedString': null}"
+      result = lint!(js, 100, 100)
+      assert result.include?('1 error(s), 0 warning(s)'), result
+      assert result.include?('&line=101&column=122'), result
+    end
+  end
+end #TESTING
+
+end #if
