@@ -115,7 +115,7 @@ end
 if __FILE__ == $0
 
 if ENV['TM_SCOPE'] =~ /source\.js/
-  puts lint!(STDIN.read, ENV['TM_INPUT_START_LINE'].to_i, ENV['TM_INPUT_START_COLUMN'].to_i)
+  puts lint!(STDIN.read, (ENV['TM_INPUT_START_LINE']||1).to_i-1, ENV['TM_INPUT_START_COLUMN'].to_i)
 else
   require "test/unit"
   class TestLint < Test::Unit::TestCase
