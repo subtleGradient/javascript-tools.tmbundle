@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 FILENAME = ENV['TM_FILENAME']
 FILEPATH = ENV['TM_FILEPATH']
-# SUPPORT  = ENV['TM_BUNDLE_SUPPORT']
-SUPPORT  = '/Users/taylott/Library/Application Support/TextMate/Bundles/JavaScript Tools.tmbundle/Support'
+SUPPORT  = ENV['TM_BUNDLE_SUPPORT']
+# You'll need to set this path manually to run the unit tests
+# SUPPORT  = "#{ENV['HOME']}/Library/Application Support/TextMate/Bundles/JavaScript Tools.tmbundle/Support"
 BINARY   = "#{SUPPORT}/bin/jsl"
 # BINARY   = `uname -a` =~ /i386/ ? "#{SUPPORT}/bin/intel/jsl" : "#{SUPPORT}/bin/ppc/jsl"
 
