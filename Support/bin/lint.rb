@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require ENV['TM_SUPPORT_PATH'] + '/lib/escape'
+
 FILENAME = ENV['TM_FILENAME']
 FILEPATH = ENV['TM_FILEPATH']
 SUPPORT  = ENV['TM_BUNDLE_SUPPORT']
@@ -43,7 +45,7 @@ output  = output.map do |chunk|
       column = lines[j+2].rindex("^") rescue 1
       column = column.to_i + 1 + offset_column rescue 1
       
-      line.gsub!(/^(\d+):/, %{<a href="txmt://open?url=file://#{FILEPATH}&line=#{linenum}&column=#{column}">\\1</a>})
+      line.gsub!(/^(\d+):/, %{<a href="txmt://open?url=file://#{e_url FILEPATH}&line=#{linenum}&column=#{column}">\\1</a>})
     end
     j += 1
     line
