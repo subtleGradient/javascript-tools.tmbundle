@@ -6,17 +6,18 @@ Help
 
 Opens this help file.
 
-Run Javascript (⌘R)
+Run JavaScript (⌘R)
 ---
 
 Attempts to run the current javascript document or selection in TextMate's Web Preview window.
 
-Javascript Lint
+JavaScript Lint
 ---
 
-> JSLint takes a JavaScript source and scans it. If it finds a problem, it returns a message describing the problem and an approximate location within the source. The problem is not necessarily a syntax error, although it often is. JSLint looks at some style conventions as well as structural problems. It does not prove that your program is correct. It just provides another set of eyes to help spot problems. - <http://www.jslint.com/lint.html>
+> With JavaScript Lint, you can check all your JavaScript source code for common mistakes without actually running the script or opening the web page.
+<http://javascriptlint.com/>
 
-* **Validate Syntax** (⌃⇧V) uses Douglas Crockford's jslint to check your script for errors and warnings and shows the results in a new window. The *Validate Javascript* window will give you a description and hyperlink when problems are found. The hyperlink will take you straight to the where jslint suspects the problem arises.
+* **Validate Syntax** (⌃⇧V) uses Matthias Miller's JavaScript Lint to check your script for errors and warnings and shows the results in a new window. The *Validate JavaScript* window will give you a description and hyperlink when problems are found. The hyperlink will take you straight to the line and column where JavaScript Lint suspects the problem arises.
 
 * **Validate Syntax Quick** (⌘S) same as above except that instead of a dedicated window you simply get a tooltip showing the number of errors and warnings. This command overrides the Save behavior so every time you save your javascript it will be passed through jslint. Of course it only applies to javascript files so you don't need to worry about accidentally jslint'ing your non-javascript files.
 
@@ -25,7 +26,7 @@ Javascript Lint
 Formatting / Compression
 ---
 
-* **Format Javascript** (⌃Q) attempts to beautify your javascript by inserting uniform line breaks and indentation throughout your current document or selection.
+* **Format JavaScript** (⌃Q) attempts to beautify your javascript by inserting uniform line breaks and indentation throughout your current document or selection.
 
 * **Compress (current file)** (⌃⌘C) uses a custom Rhino build from the Dojo Toolkit project to compress your current javascript document. Before compressing it attempts to insert missing semi-colons so you should consider running *Validate Syntax* and fixing missing semi-colons prior to using this command.
 
@@ -38,15 +39,15 @@ However, if you would like base62 encoding, just set the Variable `TM_JST_PB62` 
 
 * **Minimize selection** (⌃⌥⇧Q) same as the above except it only applies to the selected portion of your current javascript document.
 
-* **Convert Javascript to Bookmarklet** (⌃⌥⇧Q) turns your current javascript selection or document into a [bookmarklet][bkml] for use in a web browser.
+* **Convert JavaScript to Bookmarklet** (⌃⌥⇧Q) turns your current javascript selection or document into a [bookmarklet][bkml] for use in a web browser.
 
-* **Convert Bookmarklet to Javascript** (⌃⌥⇧Q) does the opposite of the above; turns an existing bookmarklet into a standard javascript.
+* **Convert Bookmarklet to JavaScript** (⌃⌥⇧Q) does the opposite of the above; turns an existing bookmarklet into a standard javascript.
 
 
 Licenses
 ---
 
-* **[JSLint][lint]** Copyright 2002 Douglas Crockford
+* **[JavaScript Lint][lint]** Based on [SpiderMonkey][smonk], which is licensed under the [MPL][mpl]/[GPL][gpl]/[LGPL][lgpl] tri-license
 * **[Dojo Toolkit][dojo]** [BSD License][dbsd] or [Academic Free License version 2.1][dafl]
 * **[Rhino][rhino]** [MPL 1.1/GPL 2.0][rmpl] [except where noted][radd]
 * **[Dean Edwards Packer][pack]** [LGPL License][lgpl]
@@ -69,3 +70,7 @@ Licenses
 [ybsd]:   http://developer.yahoo.com/yui/license.html
 [jsmin]:  http://www.crockford.com/javascript/jsmin.html
 [bkml]:   http://en.wikipedia.org/wiki/Bookmarklet
+[mpl]:    http://www.mozilla.org/MPL/MPL-1.1.html
+[gpl]:    http://www.gnu.org/copyleft/gpl.html
+[lgpl]:   http://www.gnu.org/licenses/lgpl.html
+[smonk]:  http://www.mozilla.org/js/spidermonkey/
