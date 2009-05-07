@@ -14,16 +14,18 @@ Packr.pack_file('/tmp/compress_this_file.js', :shrink_vars =&gt; true, :base62 =
 packed = File::read('/tmp/compress_this_file.js')
 puts packed
 </string>
+	<key>fallbackInput</key>
+	<string>scope</string>
 	<key>input</key>
-	<string>document</string>
+	<string>selection</string>
 	<key>keyEquivalent</key>
 	<string>^@c</string>
 	<key>name</key>
-	<string>Dean Edwards Packer (current file)</string>
+	<string>Compress with Dean Edwards Packer</string>
 	<key>output</key>
-	<string>replaceDocument</string>
+	<string>replaceSelectedText</string>
 	<key>scope</key>
-	<string>source.js</string>
+	<string>source.js -entity.name.tag.script.html</string>
 	<key>uuid</key>
 	<string>16D885D1-78B1-47F2-9BCC-1F27B77B987E</string>
 </dict>

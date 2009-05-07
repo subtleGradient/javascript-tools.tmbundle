@@ -6,16 +6,18 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>ruby -e 'print `ruby "$TM_BUNDLE_SUPPORT/bin/jsmin.rb"`[1..-1]'</string>
+	<key>fallbackInput</key>
+	<string>scope</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
 	<string>^~Q</string>
 	<key>name</key>
-	<string>Minimize selection</string>
+	<string>Minimize selection with JSMin</string>
 	<key>output</key>
 	<string>replaceSelectedText</string>
 	<key>scope</key>
-	<string>source.js, source.actionscript</string>
+	<string>source.js -entity.name.tag.script.html, source.actionscript</string>
 	<key>uuid</key>
 	<string>E620A7EF-DB9B-48D9-874F-60EAF426E70D</string>
 </dict>

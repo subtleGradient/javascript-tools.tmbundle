@@ -6,17 +6,20 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>cat &gt;'/tmp/compress_this_file.js'
-java -jar "$TM_BUNDLE_SUPPORT/bin/custom_rhino.jar" -c '/tmp/compress_this_file.js'</string>
+java -jar "$TM_BUNDLE_SUPPORT/bin/custom_rhino.jar" -c '/tmp/compress_this_file.js'
+</string>
+	<key>fallbackInput</key>
+	<string>scope</string>
 	<key>input</key>
-	<string>document</string>
+	<string>selection</string>
 	<key>keyEquivalent</key>
 	<string>^@c</string>
 	<key>name</key>
-	<string>Compress (current file)</string>
+	<string>Compress with Custom Rhino</string>
 	<key>output</key>
-	<string>replaceDocument</string>
+	<string>replaceSelectedText</string>
 	<key>scope</key>
-	<string>source.js</string>
+	<string>source.js -entity.name.tag.script.html</string>
 	<key>uuid</key>
 	<string>0B51E320-D218-4352-8AEF-096B3232E818</string>
 </dict>
