@@ -39,13 +39,28 @@ output  = output.map do |chunk|
   lines = lines.map do |line|
     if line =~ /^(\d+):/
       
+      tab_count = lines[j+1].scan("\t").length
+      
+      lines[j+1].gsub!("\t", (' ' * ENV['TM_TAB_SIZE'].to_i))
+      tab_count.times do
+        lines[j+2].sub!(('.' * 8), '.' + (' ' * (ENV['TM_TAB_SIZE'].to_i - 1)) )
+      end
+      
       linenum = line.scan(/^(\d+):/).first.first
       linenum = linenum.to_i + offset_line rescue 1
       
-      column = lines[j+2].rindex("^") rescue 1
+      column = lines[j+2].gsub(' ','').rindex("^") rescue 1
       column = column.to_i + 1 + offset_column rescue 1
       
-      line.gsub!(/^(\d+):/, %{<a href="txmt://open?url=file://#{e_url FILEPATH}&line=#{linenum}&column=#{column}">\\1</a>})
+      # print '<pre>'
+      # puts line
+      # puts lines[j+1]
+      # puts lines[j+2]
+      # print '</pre>'
+      
+      # line.gsub!(/^(\d+):/, %{<a href="txmt://open?url=file://#{e_url FILEPATH}&line=#{linenum}&column=#{column}">\\1</a>})
+      line.sub!(/^/, %{<a href="txmt://open?url=file://#{e_url FILEPATH}&line=#{linenum}&column=#{column}">})
+      line.sub!(/$/, %{</a>})
     end
     j += 1
     line
@@ -117,8 +132,30 @@ end
 
 if __FILE__ == $0
 
+def has_selection?
+  !!ENV['TM_SELECTED_TEXT']
+end
+
+def start_line
+  # return (ENV['TM_INPUT_START_LINE'] || 1).to_i - 1
+  
+  $file ||= (File.read(FILEPATH))
+  $file[0..$file.index($INPUT)].scan("\n").length #- (has_selection? ? 1 : 0)
+  # $file[0..$file.index($INPUT)].scan("\n").length # correct for embedded javascript in html and selected js in html
+end
+
+def start_column
+  # ENV['TM_INPUT_START_COLUMN'].to_i - (has_selection? ? 1 : 0)
+  $file ||= (File.read(FILEPATH))
+  $file[0..$file.index($INPUT)].split("\n").last.length - 1 #- (has_selection? ? 1 : 0)
+  # $file[0..$file.index($INPUT)].split("\n").last.length - 1 # correct for embedded javascript in html and selected js in html
+end
+
 if ENV['TM_SCOPE'] =~ /source\.js/
-  puts lint!(STDIN.read, (ENV['TM_INPUT_START_LINE']||1).to_i-1, ENV['TM_INPUT_START_COLUMN'].to_i)
+  $INPUT = (STDIN.read)
+  # p start_line
+  # p start_column
+  puts lint!($INPUT, start_line, start_column)
 else
   require "test/unit"
   class TestLint < Test::Unit::TestCase
