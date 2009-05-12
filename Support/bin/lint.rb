@@ -147,7 +147,7 @@ end
 def start_column
   # ENV['TM_INPUT_START_COLUMN'].to_i - (has_selection? ? 1 : 0)
   $file ||= (File.read(FILEPATH))
-  $file[0..$file.index($INPUT)].split("\n").last.length - 1 #- (has_selection? ? 1 : 0)
+  $file[0..$file.index($INPUT)].split("\n").last.length - 1 rescue 0 #- (has_selection? ? 1 : 0)
   # $file[0..$file.index($INPUT)].split("\n").last.length - 1 # correct for embedded javascript in html and selected js in html
 end
 
