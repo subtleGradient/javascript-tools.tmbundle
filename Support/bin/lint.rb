@@ -38,8 +38,8 @@ output  = output.map do |chunk|
   j = 0
   lines = lines.map do |line|
     if line =~ /^(\d+):/
-      
-      tab_count = lines[j+1].scan("\t").length
+      lines[j+1] ||= ''
+      tab_count = lines[j+1].scan("\t").length rescue 0
       
       lines[j+1].gsub!("\t", (' ' * ENV['TM_TAB_SIZE'].to_i))
       tab_count.times do
@@ -140,7 +140,7 @@ def start_line
   # return (ENV['TM_INPUT_START_LINE'] || 1).to_i - 1
   
   $file ||= (File.read(FILEPATH))
-  $file[0..$file.index($INPUT)].scan("\n").length #- (has_selection? ? 1 : 0)
+  $file[0..$file.index($INPUT)].scan("\n").length rescue 0 #- (has_selection? ? 1 : 0)
   # $file[0..$file.index($INPUT)].scan("\n").length # correct for embedded javascript in html and selected js in html
 end
 
