@@ -6,7 +6,7 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>cat &gt;'/tmp/compress_this_file.js'
-java -jar "$TM_BUNDLE_SUPPORT/bin/custom_rhino.jar" -c '/tmp/compress_this_file.js'
+java -jar "$TM_BUNDLE_SUPPORT/bin/shrinksafe.jar" -c '/tmp/compress_this_file.js'
 </string>
 	<key>fallbackInput</key>
 	<string>scope</string>
@@ -15,7 +15,7 @@ java -jar "$TM_BUNDLE_SUPPORT/bin/custom_rhino.jar" -c '/tmp/compress_this_file.
 	<key>keyEquivalent</key>
 	<string>^@c</string>
 	<key>name</key>
-	<string>Compress with Custom Rhino</string>
+	<string>Compress with Dojo ShrinkSafe</string>
 	<key>output</key>
 	<string>replaceSelectedText</string>
 	<key>scope</key>
