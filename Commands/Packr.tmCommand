@@ -5,15 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby
-require 'ftools'
-require "#{ENV['TM_BUNDLE_SUPPORT']}/bin/packr-1.0.2/lib/packr.rb"
-
-File::copy("#{ENV['TM_FILEPATH']}", '/tmp/compress_this_file.js')
-Packr.pack_file('/tmp/compress_this_file.js', :shrink_vars =&gt; true, :base62 =&gt; !ENV['TM_JST_PB62'].nil?)
-packed = File::read('/tmp/compress_this_file.js')
-puts packed
-</string>
+	<string>"${TM_RUBY:-ruby}" "$TM_BUNDLE_SUPPORT/bin/compress_dean_edwards.rb"</string>
 	<key>fallbackInput</key>
 	<string>scope</string>
 	<key>input</key>
