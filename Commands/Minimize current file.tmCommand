@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>"${TM_RUBY:-ruby}" "$TM_BUNDLE_SUPPORT/bin/jsmin.rb"</string>
+	<string>ruby "$TM_BUNDLE_SUPPORT/bin/jsmin.rb"</string>
 	<key>fallbackInput</key>
 	<string>scope</string>
 	<key>input</key>
