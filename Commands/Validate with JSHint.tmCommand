@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>
+cat &gt; "$TMPDIR/validate.me.js"
+
+. "$TM_SUPPORT_PATH/lib/webpreview.sh"
+html_header "Validate Javascript"
+
+require_cmd node
+
+"${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js"
+# |sed 's/&amp;/&amp;amp;/g'|sed 's/&lt;/&amp;gt;/g'|pre
+
+html_footer
+</string>
+	<key>fallbackInput</key>
+	<string>scope</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^V</string>
+	<key>name</key>
+	<string>Validate with JSHint</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.js</string>
+	<key>uuid</key>
+	<string>7C7E733F-D008-4A52-8A2C-7552836807C1</string>
+</dict>
+</plist>

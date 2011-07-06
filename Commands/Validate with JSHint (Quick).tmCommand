@@ -5,17 +5,22 @@
 	<key>beforeRunningCommand</key>
 	<string>saveActiveFile</string>
 	<key>command</key>
-	<string># runs on save; only notifies you if it raises a warning or error
-"${TM_RUBY:-ruby}" "$TM_BUNDLE_SUPPORT/bin/quick_lint.rb"</string>
+	<string>require_cmd node
+"${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js" quick
+</string>
+	<key>fallbackInput</key>
+	<string>scope</string>
 	<key>input</key>
-	<string>none</string>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>@s</string>
 	<key>name</key>
-	<string>Validate Quick with JSLint</string>
+	<string>Validate with JSHint (Quick)</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
 	<string>source.js</string>
 	<key>uuid</key>
-	<string>F2A344A2-8546-41E8-BC60-EA331D4EF7B8</string>
+	<string>EAC536BF-6C4C-4AE9-8437-B28E8EB31631</string>
 </dict>
 </plist>
