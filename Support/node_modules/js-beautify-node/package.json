@@ -1,0 +1,32 @@
+{
+   "name": "js-beautify-node",
+   "description": "Javascript beautifier.  Working on node'ifying it.",
+   "tags": [
+       "js",
+       "javascript",
+       "beautifier",
+       "indentation",
+       "dumper",
+       "serialize",
+       "node"
+   ],
+   "version": "1.0.0",
+   "author": {
+      "name" : "Gregor Schwab", 
+      "email" : "mail@synaptic-labs.net",
+      "url" : "www.grenzgenial.com"  
+   },
+   "repository": {
+       "type": "git",
+       "url": "https://github.com/dotmaster/js-beautify-node"
+   },
+   "bugs": "https://github.com/dotmaster/js-beautify-node/issues",
+   "engines": [
+       "node >= 0.3.0"
+   ],
+   "main": "beautify-node.js",
+   "license" : "MIT License (see License)",
+   "dependencies": {  
+    },
+    "bin" : { "jsbeautify" : "./beautify-node.js" }    
+}

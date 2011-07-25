@@ -6,14 +6,15 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>cat &gt; /tmp/reformat_this_file.js
-cd "$TM_BUNDLE_SUPPORT/bin/js-beautify/"
+
+require_cmd node
 
 INDENT="1"
 if [ $TM_SOFT_TABS = YES ]; then
 	INDENT="$TM_TAB_SIZE"
 fi
 
-java -jar ../js.jar beautify-cl.js -n -i "$INDENT" /tmp/reformat_this_file.js 2&gt;&amp;1
+node "$TM_BUNDLE_SUPPORT/node_modules/js-beautify-node/beautify-node.js" -n -i "$INDENT" /tmp/reformat_this_file.js 2&gt;&amp;1
 </string>
 	<key>fallbackInput</key>
 	<string>scope</string>
@@ -22,12 +23,12 @@ java -jar ../js.jar beautify-cl.js -n -i "$INDENT" /tmp/reformat_this_file.js 2&
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
-	<string>Reformat with JS Beautifier (Rhino)</string>
+	<string>Reformat with JS Beautifier</string>
 	<key>output</key>
 	<string>replaceSelectedText</string>
 	<key>scope</key>
 	<string>source.js -entity.name.tag.script.html</string>
 	<key>uuid</key>
-	<string>0C3CB37C-1C88-4F62-814B-5C6998E1709B</string>
+	<string>91A87FF2-F802-4999-98ED-4FEFC3465AC1</string>
 </dict>
 </plist>
