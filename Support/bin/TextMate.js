@@ -7,11 +7,16 @@ exports.href = function(path, line, column){
 
 exports.linkPaths = function(html){
     return String(html)
-        .replace(/(\.*\/[^\n]+?):(\d+)(?::(\d+))?/, exports.linkPath)
+        .replace(/(\.*\/[^\n(){},'"]+?):(\d+)(?::(\d+))?/g, exports.linkPath)
 }
 
 exports.linkPath = function(match, path, line, column){
-    return '<a href="' + exports.href(path, line, column) + '">' + match.replace(matchHome, '~') + '</a>'
+    return '<a tabindex=0 style="padding-left:.5ex;border-left:2.3ex solid ' + exports.uniqueColorFor(path + line) + ';" href="' + exports.href(path, line, column) + '">' + match.replace(process.env.TM_DIRECTORY+'/', '') + '</a><script>document.getElementsByTagName("a")[0].focus()</script>'
+}
+
+exports.uniqueColorFor_cache = {}
+exports.uniqueColorFor = function(thing){
+    return exports.uniqueColorFor_cache[thing] || (exports.uniqueColorFor_cache[thing] = 'hsl(' + Math.random() * 360 + ', 50%, 50%)')
 }
 
 var matchHome = RegExp(process.env.HOME,'g')
@@ -20,13 +25,32 @@ exports.expandFileNameToPath = function(fileName){
     return process.installPrefix + '/lib/' + fileName
 }
 
-require('assert').equal(
-    exports.linkPaths('/Users/thomas/Projects/Sencha/SDK/build/bin/build-bootstraps-2.js:90:60'),
-    exports.linkPath('/Users/thomas/Projects/Sencha/SDK/build/bin/build-bootstraps-2.js:90:60'
-                    ,'/Users/thomas/Projects/Sencha/SDK/build/bin/build-bootstraps-2.js',90,60)
-)
-
 if (module.id == '.') {
+    require('assert').equal(
+        exports.linkPaths('/Users/thomas/Projects/Sencha/SDK/build/bin/build-bootstraps-2.js:90:60'),
+        exports.linkPath('/Users/thomas/Projects/Sencha/SDK/build/bin/build-bootstraps-2.js:90:60'
+                        ,'/Users/thomas/Projects/Sencha/SDK/build/bin/build-bootstraps-2.js',90,60)
+    )
+    require('assert').equal(
+        exports.linkPaths
+            ("node.js:183\n\
+                    throw e; // process.nextTick error, or 'error' event on first tick\n\
+                    ^\n\
+            TypeError: Cannot read property 'className' of undefined\n\
+                at isClobberedBy (/Users/thomas/Projects/Sencha/SDK/build/lib/discover-metaclass.js:114:14)\n\
+                at isClobberedBy (/Users/thomas/Projects/Sencha/SDK/build/lib/discover-metaclass.js:119:15)\n\
+                at isClobberedBy (/Users/thomas/Projects/Sencha/SDK/build/lib/discover-metaclass.js:119:15)\n\
+                at Function.isClobberedBy (/Users/thomas/Projects/Sencha/SDK/build/lib/discover-metaclass.js:119:15)\n\
+                at Object.<anonymous> (/Users/thomas/Projects/Sencha/SDK/build/lib/discover-metaclass.js:166:32)\n\
+                at Module._compile (module.js:423:26)\n\
+                at Object..js (module.js:429:10)\n\
+                at Module.load (module.js:339:31)\n\
+                at Function._load (module.js:298:12)\n\
+                at Array.<anonymous> (module.js:442:10)"
+            ).match(/txmt:/g).length
+        ,5
+    )
+
     try {
 	    var action = process.argv[2]
 	    
