@@ -6,7 +6,7 @@
 	<string>saveActiveFile</string>
 	<key>command</key>
 	<string># runs on save; only notifies you if it raises a warning or error
-"${TM_RUBY:-ruby}" "$TM_BUNDLE_SUPPORT/bin/quick_lint.rb"</string>
+ruby "$TM_BUNDLE_SUPPORT/bin/quick_lint.rb"</string>
 	<key>input</key>
 	<string>none</string>
 	<key>name</key>
