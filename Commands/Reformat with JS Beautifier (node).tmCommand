@@ -23,7 +23,7 @@ node "$TM_BUNDLE_SUPPORT/node_modules/js-beautify-node/beautify-node.js" -n -i "
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
-	<string>Reformat with JS Beautifier</string>
+	<string>Reformat with JS Beautifier (Node.js)</string>
 	<key>output</key>
 	<string>replaceSelectedText</string>
 	<key>scope</key>

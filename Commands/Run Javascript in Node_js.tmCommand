@@ -19,7 +19,7 @@ html_footer
 	<key>keyEquivalent</key>
 	<string>~@r</string>
 	<key>name</key>
-	<string>Run Javascript in Node.js</string>
+	<string>Run in Node.js</string>
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
