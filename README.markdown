@@ -1,12 +1,23 @@
-**How to install from GitHub**
+*How to install*
 
-1. Click the "Download Source" button.
-2. Unzip the download
-3. Rename the folder to JavaScript-tools.tmbundle
-4. Double-click
-5. TextMate handles the rest!
+1. <h2>[Get with **GitHub for Mac**](http://mac.github.com/ "GitHub for Mac")</h2>
+2. *Clone it* to your `~/Library/Application Support/TextMate/Pristine Copy/Bundles`
+3. In TextMate *choose the menu item…*
+    **Bundles** / **Bundle Editor** / **Reload Bundles**
+
+* * *
+
+<del>
+1. Click the "Download Source" button.<br>
+2. Unzip the download<br>
+3. Rename the folder to JavaScript-tools.tmbundle<br>
+4. Double-click<br>
+5. TextMate handles the rest!<br>
+</del>
 
 ---
+
+<ins>NOTE: These docs are now a little out-of-date.</ins>
 
 JavaScript Tools TextMate Bundle
 ===
