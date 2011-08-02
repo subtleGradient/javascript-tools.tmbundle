@@ -7,7 +7,16 @@ exports.href = function(path, line, column){
 
 exports.linkPaths = function(html){
     return String(html)
-        .replace(/(\.*\/[^\n(){},'"]+?):(\d+)(?::(\d+))?/g, exports.linkPath)
+        // .replace(/(\.*\/[^\n(){},'"]+?):(\d+)(?::(\d+))?/g, exports.linkPath)
+        .replace(/\B(\/\b[^\n'"]*?\b\.js)(?!>)(?::(\d+))?(?::(\d+))?\b/g, exports.linkPath)
+    
+    /*
+        YES
+        /foo
+        NO
+        f/foo
+        //aasdas
+    */
 }
 
 exports.linkPath = function(match, path, line, column){

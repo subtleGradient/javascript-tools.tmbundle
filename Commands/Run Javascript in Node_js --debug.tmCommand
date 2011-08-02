@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>. "$TM_SUPPORT_PATH/lib/webpreview.sh"
+html_header "Run JavaScript in Node.js"
+
+require_cmd node
+
+echo "&lt;h2&gt;You'll need to start Node Inspector separately&lt;/h2&gt;"
+
+node --debug "$TM_FILEPATH" 2&gt;&amp;1 |pre | "$TM_BUNDLE_SUPPORT/bin/TextMate.js" linkPaths
+
+html_footer
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^~@R</string>
+	<key>name</key>
+	<string>Debug with Node.js</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.js</string>
+	<key>uuid</key>
+	<string>F9046994-D105-4D83-8E23-CFB535C892A7</string>
+</dict>
+</plist>

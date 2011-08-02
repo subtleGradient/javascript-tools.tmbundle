@@ -1,3 +1,5 @@
+/*jshint asi:true*/
+
 var QUICK = process.argv.indexOf('quick') >= 0
 
 var JSHINT = require('./jshint').JSHINT
@@ -74,7 +76,7 @@ function report(message){
                     ('', message.reason)
                 )
             )
-            ('td',BS('code', message.evidence.replace(/&/g,'&amp;').replace(/</g,'&lt;')))
+            ('td',BS('code', String(message.evidence).replace(/&/g,'&amp;').replace(/</g,'&lt;')))
         )
     ))
     

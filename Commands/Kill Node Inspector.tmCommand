@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>ps|grep node-inspector|xargs -n 1|head -1|xargs kill
+ps|grep node-inspector|grep -v grep
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^~@R</string>
+	<key>name</key>
+	<string>Kill Node Inspector</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.js</string>
+	<key>uuid</key>
+	<string>F1DF7529-7815-4FF8-918C-87BA71453EE3</string>
+</dict>
+</plist>
