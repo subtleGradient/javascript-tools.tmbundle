@@ -4,6 +4,7 @@
 2. *Clone it* to your `~/Library/Application Support/TextMate/Pristine Copy/Bundles`
 3. In TextMate *choose the menu item…*
     **Bundles** / **Bundle Editor** / **Reload Bundles**
+4. If node is not installed in your PATH, go to TextMate → Preferences → Advanced → Shell Variables and add /usr/local/bin, basically the path to where node lives on your machine (which node).
 
 * * *
 
