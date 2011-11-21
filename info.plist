@@ -20,6 +20,7 @@
 			<string>C8BDE80D-21C7-4237-886D-A099AC463665</string>
 			<string>------------------------------------</string>
 			<string>158E1772-3408-4603-81DA-86FEF3FF018D</string>
+			<string>651DF907-70AB-40FF-BEB3-7F286675B160</string>
 		</array>
 		<key>submenus</key>
 		<dict>
@@ -36,6 +37,16 @@
 				</array>
 				<key>name</key>
 				<string>Node.js</string>
+			</dict>
+			<key>651DF907-70AB-40FF-BEB3-7F286675B160</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>EE871DA2-04F2-4499-8323-AB9004221C94</string>
+					<string>DE5BE8AC-EDA3-4C1E-BDDE-FAD45F2D1B5C</string>
+				</array>
+				<key>name</key>
+				<string>Execute</string>
 			</dict>
 			<key>C8BDE80D-21C7-4237-886D-A099AC463665</key>
 			<dict>
@@ -95,6 +106,8 @@
 	<array>
 		<string>6298E048-4D1B-4DD2-A3F1-AB78DD181E06</string>
 		<string>A2A911D2-4D18-47CF-8E2D-FCDAD3006A1A</string>
+		<string>EE871DA2-04F2-4499-8323-AB9004221C94</string>
+		<string>DE5BE8AC-EDA3-4C1E-BDDE-FAD45F2D1B5C</string>
 		<string>F9046994-D105-4D83-8E23-CFB535C892A7</string>
 		<string>AB09302E-EE14-4464-92AB-240F0DD26596</string>
 		<string>FF421350-D5CD-4FB2-9FDE-D92B02CD7F73</string>
