@@ -8,7 +8,7 @@ exports.href = function(path, line, column){
 exports.linkPaths = function(html){
     return String(html)
         // .replace(/(\.*\/[^\n(){},'"]+?):(\d+)(?::(\d+))?/g, exports.linkPath)
-        .replace(/\B(\/\b[^\n'"]*?\b\.js)(?!>)(?::(\d+))?(?::(\d+))?\b/g, exports.linkPath)
+        .replace(/\B((?:\/\b(?:[\w._-]+(?:\b \b[\w._-]+)*\b)){2,})(?!>)(?::(\d+)(?::(\d+))?)?/g, exports.linkPath)
     
     /*
         YES
@@ -61,12 +61,17 @@ if (module.id == '.') {
     )
 
     try {
-	    var action = process.argv[2]
+	    var action = process.argv[2] || process.env.TM_SELECTED_TEXT
+	    var args = process.argv.slice(3)
 	    
-        process.stdin.resume();
-        process.stdin.on('data', function(data){
-            process.stdout.write(exports[action](data))
-        })
+	    if (exports[action]) {
+            process.stdin.resume();
+            process.stdin.on('data', function(data){
+                process.stdout.write(exports[action].apply(null, [data].concat(args)))
+            })
+	    } else {
+	        console.warn(exports)
+	    }
     } catch(e){
         console.error(exports)
         process.exit(1)
