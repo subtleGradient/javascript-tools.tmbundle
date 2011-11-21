@@ -19,7 +19,7 @@
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>source.js</string>
+	<string>source.js -(meta.tag.block.script.html)</string>
 	<key>uuid</key>
 	<string>EAC536BF-6C4C-4AE9-8437-B28E8EB31631</string>
 </dict>

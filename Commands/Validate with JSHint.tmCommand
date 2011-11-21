@@ -29,7 +29,7 @@ html_footer
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
-	<string>source.js</string>
+	<string>source.js -(meta.tag.block.script.html)</string>
 	<key>uuid</key>
 	<string>7C7E733F-D008-4A52-8A2C-7552836807C1</string>
 </dict>
