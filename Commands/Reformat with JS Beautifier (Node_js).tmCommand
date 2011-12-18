@@ -5,7 +5,10 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>cat &gt; /tmp/reformat_this_file.js
+	<string>#!/usr/bin/env bash -l
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+cat &gt; /tmp/reformat_this_file.js
 
 require_cmd node
 
@@ -20,15 +23,23 @@ node "$TM_BUNDLE_SUPPORT/node_modules/js-beautify-node/beautify-node.js" -n -i "
 	<string>scope</string>
 	<key>input</key>
 	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
 	<string>Reformat with JS Beautifier (Node.js)</string>
-	<key>output</key>
-	<string>replaceSelectedText</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
 	<key>scope</key>
 	<string>source.js -entity.name.tag.script.html</string>
 	<key>uuid</key>
 	<string>91A87FF2-F802-4999-98ED-4FEFC3465AC1</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

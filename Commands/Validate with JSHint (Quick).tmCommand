@@ -5,22 +5,33 @@
 	<key>beforeRunningCommand</key>
 	<string>saveActiveFile</string>
 	<key>command</key>
-	<string>require_cmd node
+	<string>#!/usr/bin/env bash -l
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+require_cmd node
 "${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js" quick
 </string>
 	<key>fallbackInput</key>
 	<string>scope</string>
 	<key>input</key>
 	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>@s</string>
 	<key>name</key>
 	<string>Validate with JSHint (Quick)</string>
-	<key>output</key>
-	<string>showAsTooltip</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
 	<key>scope</key>
 	<string>source.js -(meta.tag.block.script.html)</string>
 	<key>uuid</key>
 	<string>EAC536BF-6C4C-4AE9-8437-B28E8EB31631</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

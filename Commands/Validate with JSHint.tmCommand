@@ -5,7 +5,10 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>
+	<string>#!/usr/bin/env bash -l
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+
 cat &gt; "$TMPDIR/validate.me.js"
 
 . "$TM_SUPPORT_PATH/lib/webpreview.sh"
@@ -22,15 +25,23 @@ html_footer
 	<string>scope</string>
 	<key>input</key>
 	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>^V</string>
 	<key>name</key>
 	<string>Validate with JSHint</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
 	<string>source.js -(meta.tag.block.script.html)</string>
 	<key>uuid</key>
 	<string>7C7E733F-D008-4A52-8A2C-7552836807C1</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
