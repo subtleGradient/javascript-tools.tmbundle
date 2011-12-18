@@ -5,7 +5,9 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>ps|grep node-inspector|xargs -n 1|head -1|xargs kill
+	<string>#!/usr/bin/env bash -l
+source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
+ps|grep node-inspector|xargs -n 1|head -1|xargs kill
 ps|grep node-inspector|grep -v grep
 </string>
 	<key>input</key>

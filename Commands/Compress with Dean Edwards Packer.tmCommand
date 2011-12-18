@@ -5,7 +5,10 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>ruby "$TM_BUNDLE_SUPPORT/bin/compress_dean_edwards.rb"</string>
+	<string>#!/usr/bin/env bash -l
+source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
+ruby "$TM_BUNDLE_SUPPORT/bin/compress_dean_edwards.rb"
+</string>
 	<key>fallbackInput</key>
 	<string>scope</string>
 	<key>input</key>

@@ -5,7 +5,9 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>cat &gt;'/tmp/compress_this_file.js'
+	<string>#!/usr/bin/env bash -l
+source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
+cat &gt;'/tmp/compress_this_file.js'
 java -jar "$TM_BUNDLE_SUPPORT/bin/shrinksafe.jar" -c '/tmp/compress_this_file.js'
 </string>
 	<key>fallbackInput</key>

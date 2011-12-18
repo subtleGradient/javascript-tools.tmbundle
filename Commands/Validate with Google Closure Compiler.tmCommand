@@ -5,7 +5,9 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>. "$TM_SUPPORT_PATH/lib/webpreview.sh"
+	<string>#!/usr/bin/env bash -l
+source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
+. "$TM_SUPPORT_PATH/lib/webpreview.sh"
 html_header "Validate Javascript"
 ruby "$TM_BUNDLE_SUPPORT/bin/lint-gcc.rb"
 html_footer

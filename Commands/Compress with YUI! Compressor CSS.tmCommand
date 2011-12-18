@@ -5,9 +5,12 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>cat &gt;'/tmp/compress_this_file.css';
+	<string>#!/usr/bin/env bash -l
+source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
+cat &gt;'/tmp/compress_this_file.css';
 java -jar "$TM_BUNDLE_SUPPORT/bin/yuicompressor.jar" --charset utf8 --preserve-semi --type=css '/tmp/compress_this_file.css' -o '/tmp/compress_this_file.css';
-cat /tmp/compress_this_file.css;</string>
+cat /tmp/compress_this_file.css;
+</string>
 	<key>fallbackInput</key>
 	<string>scope</string>
 	<key>input</key>

@@ -5,8 +5,11 @@
 	<key>beforeRunningCommand</key>
 	<string>saveActiveFile</string>
 	<key>command</key>
-	<string># runs on save; only notifies you if it raises a warning or error
-ruby "$TM_BUNDLE_SUPPORT/bin/quick_lint.rb"</string>
+	<string>#!/usr/bin/env bash -l
+source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
+# runs on save; only notifies you if it raises a warning or error
+ruby "$TM_BUNDLE_SUPPORT/bin/quick_lint.rb"
+</string>
 	<key>input</key>
 	<string>none</string>
 	<key>name</key>
