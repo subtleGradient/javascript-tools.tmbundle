@@ -8,15 +8,12 @@
 	<string>#!/usr/bin/env bash -l
 [[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
-
-cat &gt; "$TMPDIR/validate.me.js"
-
 . "$TM_SUPPORT_PATH/lib/webpreview.sh"
 html_header "Validate Javascript"
 
 require_cmd node
 
-"${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js"
+cat|"${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js"
 # |sed 's/&amp;/&amp;amp;/g'|sed 's/&lt;/&amp;gt;/g'|pre
 
 html_footer
@@ -24,7 +21,7 @@ html_footer
 	<key>fallbackInput</key>
 	<string>scope</string>
 	<key>input</key>
-	<string>selection</string>
+	<string>scope</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>

@@ -8,11 +8,19 @@ var TextMate = require('./TextMate')
 
 var FILEPATH = QUICK? process.env.TM_FILEPATH : process.env.TMPDIR + "validate.me.js"
 
-require('fs').readFile(FILEPATH, function(err, file){
-    if (err) console.error(err)
-    if (JSHINT(''+file)) QUICK? quickPASS() : PASS();
-    else QUICK? quickFAIL() : FAIL();
-});
+process.stdin.resume()
+process.stdin.setEncoding('utf8')
+
+var CODE = ''
+
+process.stdin.on('data', function(chunk){
+    CODE += chunk
+})
+
+process.stdin.on('end', function(){
+    if (JSHINT(''+CODE)) QUICK? quickPASS() : PASS()
+    else QUICK? quickFAIL() : FAIL()
+})
 
 function quickPASS(){
     console.log(JSHINT.errors.length + ' Issues - JSHint')
@@ -59,12 +67,11 @@ function FAIL(){
         \
     "))
     console.log('<table cellspacing=0>')
-    JSHINT.errors.forEach(report)
+    JSHINT.errors.forEach(reportError)
     console.log('</table>')
 }
 
-function report(message){
-    // console.log(message)
+function reportError(message){
     console.log
     ((''+BS('')
         ('tr',BS('')
