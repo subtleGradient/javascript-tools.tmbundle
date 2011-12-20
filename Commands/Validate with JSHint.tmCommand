@@ -35,7 +35,7 @@ html_footer
 	<key>outputLocation</key>
 	<string>newWindow</string>
 	<key>scope</key>
-	<string>source.js -(meta.tag.block.script.html)</string>
+	<string>source.es, source.js -(meta.tag.block.script.html)</string>
 	<key>uuid</key>
 	<string>7C7E733F-D008-4A52-8A2C-7552836807C1</string>
 	<key>version</key>

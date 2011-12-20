@@ -27,7 +27,7 @@ cat|"${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js" quick
 	<key>outputLocation</key>
 	<string>toolTip</string>
 	<key>scope</key>
-	<string>source.js -(meta.tag.block.script.html)</string>
+	<string>source.es, source.js -(meta.tag.block.script.html)</string>
 	<key>semanticClass</key>
 	<string>validate.quick</string>
 	<key>uuid</key>
