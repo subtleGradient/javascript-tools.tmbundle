@@ -71,7 +71,7 @@ function report(message){
             ('th',BS('')
                 ('A'
                     // +' style="display:block;background:#eee;margin:1ex;"'
-                    +' href="' + TextMate.href(encodeURIComponent(process.env.TM_FILEPATH), message.line, message.character) + '"'
+                    +' href="' + TextMate.href(process.env.TM_FILEPATH, message.line, message.character) + '"'
                     ,BS('')
                     ('', message.reason)
                 )
