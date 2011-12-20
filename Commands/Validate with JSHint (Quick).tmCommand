@@ -9,12 +9,13 @@
 [[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
 require_cmd node
-"${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js" quick
+
+cat|"${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js" quick
 </string>
 	<key>fallbackInput</key>
 	<string>scope</string>
 	<key>input</key>
-	<string>selection</string>
+	<string>scope</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
