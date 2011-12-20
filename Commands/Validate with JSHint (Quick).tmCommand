@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>saveActiveFile</string>
+	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env bash -l
 [[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
@@ -18,8 +18,6 @@ cat|"${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js" quick
 	<string>scope</string>
 	<key>inputFormat</key>
 	<string>text</string>
-	<key>keyEquivalent</key>
-	<string>@s</string>
 	<key>name</key>
 	<string>Validate with JSHint (Quick)</string>
 	<key>outputCaret</key>
@@ -30,6 +28,8 @@ cat|"${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js" quick
 	<string>toolTip</string>
 	<key>scope</key>
 	<string>source.js -(meta.tag.block.script.html)</string>
+	<key>semanticClass</key>
+	<string>validate.quick</string>
 	<key>uuid</key>
 	<string>EAC536BF-6C4C-4AE9-8437-B28E8EB31631</string>
 	<key>version</key>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>validate.quick</string>
+	<key>name</key>
+	<string>Validate Quick On Save</string>
+	<key>scope</key>
+	<string>source.es, source.js</string>
+	<key>semanticClass</key>
+	<string>callback.document.did-save</string>
+	<key>uuid</key>
+	<string>8CA136A0-6648-4DA0-9253-9A1F1F9967E7</string>
+</dict>
+</plist>
