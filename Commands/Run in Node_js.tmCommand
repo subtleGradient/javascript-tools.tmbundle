@@ -13,12 +13,12 @@ html_header "Run JavaScript in Node.js"
 
 require_cmd node
 
-node "$TM_FILEPATH" 2&gt;&amp;1 |pre | "$TM_BUNDLE_SUPPORT/bin/TextMate.js" linkPaths
+node --harmony "$TM_FILEPATH" 2&gt;&amp;1 |pre | "$TM_BUNDLE_SUPPORT/bin/TextMate.js" linkPaths
 
 html_footer
 </string>
 	<key>input</key>
-	<string>selection</string>
+	<string>none</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
@@ -32,7 +32,7 @@ html_footer
 	<key>outputLocation</key>
 	<string>newWindow</string>
 	<key>scope</key>
-	<string>source.js</string>
+	<string>source.es, source.js</string>
 	<key>uuid</key>
 	<string>A2A911D2-4D18-47CF-8E2D-FCDAD3006A1A</string>
 	<key>version</key>

@@ -9,25 +9,33 @@
 source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
 . "$TM_SUPPORT_PATH/lib/html.sh"
 
-redirect "http://0.0.0.0:8080/debug?port=5858"
+require_cmd node
+require_cmd node-inspector
 
-ps|grep node-inspector|xargs -n 1|head -1|xargs kill
+(sleep 1; node-inspector 2&gt;&amp;1 &gt;/dev/null || true) &amp;
+(sleep 2; open -a 'Google Chrome' "http://0.0.0.0:8080/debug?port=5858") &amp;
 
-node --debug-brk "$TM_FILEPATH" 2&gt;&amp;1 &gt;/dev/null &amp;
-
-node-inspector 2&gt;&amp;1 &gt;/dev/null &amp;
+node --debug-brk "$TM_FILEPATH" | pre
 </string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>^~@r</string>
 	<key>name</key>
 	<string>Debug in Node.js Inspector</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
 	<string>source.js</string>
 	<key>uuid</key>
 	<string>FF421350-D5CD-4FB2-9FDE-D92B02CD7F73</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

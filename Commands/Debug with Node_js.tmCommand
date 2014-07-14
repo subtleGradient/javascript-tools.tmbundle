@@ -12,23 +12,32 @@ html_header "Run JavaScript in Node.js"
 
 require_cmd node
 
-echo "&lt;h2&gt;You'll need to start Node Inspector separately&lt;/h2&gt;"
+(sleep 0.2; node-inspector) &amp;
+(sleep 1.2; open -a 'Google Chrome' http://127.0.0.1:8080/debug?port=5858) &amp;
 
-node --debug "$TM_FILEPATH" 2&gt;&amp;1 |pre | "$TM_BUNDLE_SUPPORT/bin/TextMate.js" linkPaths
+node --debug-brk "$TM_FILEPATH" 2&gt;&amp;1 |pre | "$TM_BUNDLE_SUPPORT/bin/TextMate.js" linkPaths
 
 html_footer
 </string>
 	<key>input</key>
 	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>^~@R</string>
 	<key>name</key>
 	<string>Debug with Node.js</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
 	<string>source.js</string>
 	<key>uuid</key>
 	<string>F9046994-D105-4D83-8E23-CFB535C892A7</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

@@ -18,6 +18,8 @@ cat|"${TM_NODEJS:-node}" "$TM_BUNDLE_SUPPORT/bin/jshint.textmate.js" quick
 	<string>scope</string>
 	<key>inputFormat</key>
 	<string>text</string>
+	<key>isDisabled</key>
+	<true/>
 	<key>name</key>
 	<string>Validate with JSHint (Quick)</string>
 	<key>outputCaret</key>

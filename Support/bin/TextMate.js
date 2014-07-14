@@ -5,10 +5,15 @@ exports.href = function(path, line, column){
     return "txmt://open?url=file://" + path + '&line='+line + '&column='+column
 }
 
+// exports.pathRegExp = RegExp('^' + process.env.HOME + '.*?\.js(?::(\d+)(?::(\d+))?)?', 'g');
+// exports.pathRegExp = /\B((?:\/\b(?:[\(\)\w._-]+(?:\b \b[\(\)\w._-]+)*\b)){2,})(?!>)(?::(\d+)(?::(\d+))?)?/g;
+exports.pathRegExp = /(\/(?:sbin|home|net|tmp|System|opt|Network|usr|private|Users|Volumes|bin|Library|Applications)\/.+?\.x?js(?:x|on)?)(?::(\d+)(?::(\d+))?)?/g;
+
 exports.linkPaths = function(html){
     return String(html)
         // .replace(/(\.*\/[^\n(){},'"]+?):(\d+)(?::(\d+))?/g, exports.linkPath)
-        .replace(/\B((?:\/\b(?:[\w._-]+(?:\b \b[\w._-]+)*\b)){2,})(?!>)(?::(\d+)(?::(\d+))?)?/g, exports.linkPath)
+        // .replace(exports.pathRegExp, exports.linkPath)
+        .replace(exports.pathRegExp, exports.linkPath)
     
     /*
         YES
@@ -40,6 +45,7 @@ if (module.id == '.') {
         exports.linkPath('/Users/thomas/Projects/Sencha/SDK/build/bin/build-bootstraps-2.js:90:60'
                         ,'/Users/thomas/Projects/Sencha/SDK/build/bin/build-bootstraps-2.js',90,60)
     )
+
     require('assert').equal(
         exports.linkPaths
             ("node.js:183\n\
@@ -59,6 +65,18 @@ if (module.id == '.') {
             ).match(/txmt:/g).length
         ,5
     )
+
+    require('assert').equal(
+        exports.linkPaths('/Users/aylott/Dropbox/Work/node-headless-inspector/demo-chrome.js:17:22'),
+        exports.linkPath('/Users/aylott/Dropbox/Work/node-headless-inspector/demo-chrome.js:17:22'
+                        ,'/Users/aylott/Dropbox/Work/node-headless-inspector/demo-chrome.js',17,22)
+    )
+
+    // require('assert').equal(
+    //     exports.linkPaths('/Users/aylott/Dropbox (Personal)/Work/node-headless-inspector/demo-chrome.js:17:22'),
+    //     exports.linkPath('/Users/aylott/Dropbox (Personal)/Work/node-headless-inspector/demo-chrome.js:17:22'
+    //                     ,'/Users/aylott/Dropbox (Personal)/Work/node-headless-inspector/demo-chrome.js',17,22)
+    // )
 
     try {
 	    var action = process.argv[2] || process.env.TM_SELECTED_TEXT

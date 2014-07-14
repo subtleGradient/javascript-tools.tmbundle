@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash -l
+source "$TM_SUPPORT_PATH/lib/bash_init.sh" # might not be necessary
+. "$TM_SUPPORT_PATH/lib/webpreview.sh"
+html_header "Run JavaScript in Photoshop"
+
+require_cmd osascript
+
+stdout_fifo="$TMPDIR/photoshop-$$-stdout"
+stderr_fifo="$TMPDIR/photoshop-$$-stderr"
+stdin_fifo="$TMPDIR/photoshop-$$-stdin"
+
+rm -f "$stdout_fifo"
+rm -f "$stderr_fifo"
+rm -f "$stdin_fifo"
+
+mkfifo "$stdout_fifo"
+mkfifo "$stderr_fifo"
+mkfifo "$stdin_fifo"
+
+cat "$stdout_fifo" &gt; /dev/stdout &amp;
+cat "$stderr_fifo" &gt; /dev/stderr &amp;
+# cat /dev/stdin &gt; "$stderr_fifo" &amp;
+
+osascript \
+-e 'on run argv' \
+-e   'tell application "Adobe Photoshop CC" to do javascript (item 1 of argv) -- show debugger on runtime error' \
+-e 'end run' \
+"try{
+
+__stdout__ = new File('$stdout_fifo')
+__stdout__.open('w')
+$.write = function(){return __stdout__.write.apply(__stdout__, arguments)}
+print = $.writeln = function(){return __stdout__.writeln.apply(__stdout__, arguments)}
+
+__stderr__ = new File('$stderr_fifo')
+__stderr__.open('w')
+
+#include '$TM_FILEPATH'
+
+}catch(e){
+  __stderr__.writeln(e)
+}
+" | pre
+
+html_footer
+
+rm "$stdout_fifo"
+rm "$stderr_fifo"
+rm "$stdin_fifo"
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Run with Photoshop</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.js attr.rev-path.jsx, source.js attr.rev-path.jsxinc</string>
+	<key>uuid</key>
+	<string>EE765E53-0D8B-4F4C-8560-5840506CB9E9</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
