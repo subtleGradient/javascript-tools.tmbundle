@@ -1,0 +1,22 @@
+{
+  "name": "TextMate-JavaScript-Tools-Support",
+  "description": "Support files for the TextMate JavaScript Tools bundle",
+  "version": "0.1.0",
+  "repository": {
+    "url": "git://github.com/subtleGradient/node-Support.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "dependencies": {
+    "js-beautify-node": "^1.0.0",
+    "jstransform": "^9.1.1"
+  },
+  "devDependencies": {
+    "tap": "~0.2"
+  },
+  "author": "Thomas Aylott <oblivious@subtlegradient.com> (http://subtlegradient.com)",
+  "copyright": "2013 Facebook",
+  "license": "MIT"
+}

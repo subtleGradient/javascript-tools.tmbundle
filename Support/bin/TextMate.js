@@ -7,7 +7,7 @@ exports.href = function(path, line, column){
 
 // exports.pathRegExp = RegExp('^' + process.env.HOME + '.*?\.js(?::(\d+)(?::(\d+))?)?', 'g');
 // exports.pathRegExp = /\B((?:\/\b(?:[\(\)\w._-]+(?:\b \b[\(\)\w._-]+)*\b)){2,})(?!>)(?::(\d+)(?::(\d+))?)?/g;
-exports.pathRegExp = /(\/(?:sbin|home|net|tmp|System|opt|Network|usr|private|Users|Volumes|bin|Library|Applications)\/.+?\.x?js(?:x|on)?)(?::(\d+)(?::(\d+))?)?/g;
+exports.pathRegExp = /(\/(?:sbin|home|net|tmp|System|opt|Network|usr|private|Users|Volumes|bin|Library|Applications)\/.+?\.(?:json|js|jsx|jsxinc|xjs|coffee))(?::(\d+)(?::(\d+))?)?/g;
 
 exports.linkPaths = function(html){
     return String(html)

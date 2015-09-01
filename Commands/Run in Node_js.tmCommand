@@ -13,12 +13,20 @@ html_header "Run JavaScript in Node.js"
 
 require_cmd node
 
-node --harmony "$TM_FILEPATH" 2&gt;&amp;1 |pre | "$TM_BUNDLE_SUPPORT/bin/TextMate.js" linkPaths
+cd "$(dirname "$TM_FILEPATH")"
+TEST_FILEPATH="$TM_FILEPATH.TextMate_JavaScript_Tools"
+rm "$TEST_FILEPATH" &amp;&gt; /dev/null
 
+cat |grep -vE '^#' | node "$TM_BUNDLE_SUPPORT/convert-es6.js" &gt; "$TEST_FILEPATH" 2&gt; "$TMPDIR/error.log"
+cat "$TMPDIR/error.log" | pre | "$TM_BUNDLE_SUPPORT/bin/TextMate.js" linkPaths
+
+node --harmony "$TEST_FILEPATH" 2&gt;&amp;1 | pre | "$TM_BUNDLE_SUPPORT/bin/TextMate.js" linkPaths
+
+rm "$TEST_FILEPATH" &amp;&gt; /dev/null
 html_footer
 </string>
 	<key>input</key>
-	<string>none</string>
+	<string>scope</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>

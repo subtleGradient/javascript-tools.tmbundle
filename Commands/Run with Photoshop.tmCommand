@@ -12,27 +12,25 @@ html_header "Run JavaScript in Photoshop"
 
 require_cmd osascript
 
-stdout_fifo="$TMPDIR/photoshop-$$-stdout"
-stderr_fifo="$TMPDIR/photoshop-$$-stderr"
-stdin_fifo="$TMPDIR/photoshop-$$-stdin"
+TARGET_FILE="$TM_FILEPATH.TextMate_Run_with_Photoshop.jsx"
+
+stdout_fifo="${TMPDIR}photoshop-$$-stdout"
+stderr_fifo="${TMPDIR}photoshop-$$-stderr"
+# stdin_fifo="${TMPDIR}photoshop-$$-stdin"
 
 rm -f "$stdout_fifo"
 rm -f "$stderr_fifo"
-rm -f "$stdin_fifo"
+# rm -f "$stdin_fifo"
 
 mkfifo "$stdout_fifo"
 mkfifo "$stderr_fifo"
-mkfifo "$stdin_fifo"
+# mkfifo "$stdin_fifo"
 
 cat "$stdout_fifo" &gt; /dev/stdout &amp;
 cat "$stderr_fifo" &gt; /dev/stderr &amp;
 # cat /dev/stdin &gt; "$stderr_fifo" &amp;
 
-osascript \
--e 'on run argv' \
--e   'tell application "Adobe Photoshop CC" to do javascript (item 1 of argv) -- show debugger on runtime error' \
--e 'end run' \
-"try{
+echo "#target photoshop
 
 __stdout__ = new File('$stdout_fifo')
 __stdout__.open('w')
@@ -42,21 +40,29 @@ print = $.writeln = function(){return __stdout__.writeln.apply(__stdout__, argum
 __stderr__ = new File('$stderr_fifo')
 __stderr__.open('w')
 
+try{
 #include '$TM_FILEPATH'
-
 }catch(e){
-  __stderr__.writeln(e)
+  __stderr__.write(e + '\n')
 }
-" | pre
+" &gt;&gt; "$TARGET_FILE"
+
+osascript \
+-e 'on run argv' \
+-e   'tell application "Adobe Photoshop CC 2014" to do javascript (item 1 of argv) -- show debugger on runtime error' \
+-e 'end run' \
+"#include '$TARGET_FILE'" | pre
 
 html_footer
 
 rm "$stdout_fifo"
 rm "$stderr_fifo"
-rm "$stdin_fifo"
+# rm "$stdin_fifo"
+
+rm "$TARGET_FILE"
 </string>
 	<key>input</key>
-	<string>document</string>
+	<string>scope</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
