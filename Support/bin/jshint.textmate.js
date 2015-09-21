@@ -2,7 +2,7 @@
 
 var QUICK = process.argv.indexOf('quick') >= 0
 
-var JSHINT = require('./jshint').JSHINT
+var JSHINT = require('./jshint/stable/jshint').JSHINT
 var BS = require('./bs').BS
 var TextMate = require('./TextMate')
 
